@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { useLogin, Button, Form, TextInput, required, useTranslate, Login, useNotify } from 'react-admin';
-import { Avatar, Card, CardActions, CircularProgress} from '@mui/material';
+import { useLogin, Form, TextInput, required, useTranslate, Login, useNotify } from 'react-admin';
+import { Avatar, Card, CardActions, CircularProgress, Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import LockIcon from '@mui/icons-material/Lock';
 import LoginIcon from '@mui/icons-material/Login';
 import 'firebase/auth';
-import { useLocation } from 'react-router-dom';
 
 import { firebaseConfig as config, firebaseApp as firebaseAppInstance } from '../utils/FIREBASE_CONFIG.js';
-import { RAFirebaseOptions } from 'react-admin-firebase';
 
 interface FormValues {
     email?: string;
@@ -26,7 +24,6 @@ export const CustomLogin = () => {
 
 
     const notify = useNotify();
-    const location = useLocation();
 
     
     const handleLogin = async () => {
