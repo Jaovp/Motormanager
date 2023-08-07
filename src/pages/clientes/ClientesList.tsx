@@ -11,7 +11,7 @@ const renderTipo = (record: any) => {
   };
 
 
-export const ClientesList = () => {
+const ClientesList = () => {
   const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
@@ -25,6 +25,8 @@ export const ClientesList = () => {
           <TextField source="nome" label="Email"/>
           <EmailField source="email" label="Email" />
           <TextField source="telefone" label="Telefone"/>
+          <FunctionField label="Tipo" render={renderTipo} />
+          
         </SimpleList>
       ) : (
         <Datagrid rowClick="edit">
@@ -32,8 +34,11 @@ export const ClientesList = () => {
           <EmailField source="email" label="Email" />
           <TextField source="telefone" label="Telefone" />
           <FunctionField label="Tipo" render={renderTipo} />
+          <TextField source="doc" label="CPF/CNPJ" />
         </Datagrid>
       )}
     </List>
   );
 };
+
+export default ClientesList;

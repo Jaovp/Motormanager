@@ -1,16 +1,25 @@
-import { Create, NumberInput, RadioButtonGroupInput, ReferenceInput, ResourceComponentInjectedProps, SelectInput, SimpleForm, TextInput } from "react-admin";
-import PhoneInput from "../../components/PhoneInput";
+import {
+    Create,
+    TextInput,
+    SimpleForm,
+} from 'react-admin';
+import { phoneNumberFormat } from '../../components/Formatters';
+import { DocInput, TipoInput } from '../../components/DocInput';
 
-export const ClientesCreate = (props: ResourceComponentInjectedProps) => (
-    <Create {...props}>
-        <SimpleForm>
-            <TextInput source="nome" />
-            <TextInput source="email" />
-            <PhoneInput source="telefone" />
-            <RadioButtonGroupInput source="tipo" optionText="label" choices={[
-                { id: 'F', label: 'Fisico' },
-                { id: 'J', label: 'Juridico' },
-            ]} />
-        </SimpleForm>
-    </Create>
-);
+const ClientesCreate = (props: any) => {
+    
+
+    return (
+        <Create {...props}>
+            <SimpleForm>
+                <TextInput source="nome" />
+                <TextInput source="email" />
+                <TextInput source="telefone" format={phoneNumberFormat} />
+                <TipoInput />
+                <DocInput />
+            </SimpleForm>
+        </Create>
+    );
+};
+
+export default ClientesCreate;
