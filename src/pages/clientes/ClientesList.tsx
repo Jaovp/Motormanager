@@ -1,5 +1,6 @@
 import { Datagrid, EmailField, List, TextField, SimpleList, FunctionField } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
+import { Cliente } from '../../types';
 
 const postRowStyle = () => ({
   borderBottom: '1px solid #ccc',
@@ -22,19 +23,19 @@ const ClientesList = () => {
           secondaryText={(record) => record.email}
           rowStyle={postRowStyle}
         >
-          <TextField source="nome" label="Email"/>
-          <EmailField source="email" label="Email" />
-          <TextField source="telefone" label="Telefone"/>
-          <FunctionField label="Tipo" render={renderTipo} />
+          <TextField<Cliente> source="nome" label="Email"/>
+          <EmailField<Cliente> source="email" label="Email" />
+          <TextField<Cliente> source="telefone" label="Telefone"/>
+          <FunctionField<Cliente> label="Tipo" render={renderTipo} />
           
         </SimpleList>
       ) : (
         <Datagrid rowClick="edit">
-          <TextField source="nome" label="Nome"/>
-          <EmailField source="email" label="Email" />
-          <TextField source="telefone" label="Telefone" />
-          <FunctionField label="Tipo" render={renderTipo} />
-          <TextField source="doc" label="CPF/CNPJ" />
+          <TextField<Cliente> source="nome" label="Nome"/>
+          <EmailField<Cliente> source="email" label="Email" />
+          <TextField<Cliente> source="telefone" label="Telefone" />
+          <FunctionField<Cliente> source='tipo' label="Tipo" render={renderTipo} />
+          <TextField<Cliente> source="doc" label="CPF/CNPJ" />
         </Datagrid>
       )}
     </List>
