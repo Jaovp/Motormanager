@@ -2,15 +2,17 @@ import {
     Create,
     TextInput,
     SimpleForm,
+    ListProps,
 } from 'react-admin';
 import { phoneNumberFormat } from '../../components/Formatters';
 import { DocInput, TipoInput } from '../../components/DocInput';
+import { Cliente } from '../../types';
 
-const ClientesCreate = (props: any) => {
+const ClientesCreate: React.FC < ListProps > = () => {
     
 
     return (
-        <Create {...props}>
+        <Create <Cliente> >
             <SimpleForm>
                 <TextInput source="nome" />
                 <TextInput source="email" />

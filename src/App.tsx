@@ -6,7 +6,6 @@ import { FirebaseAuthProvider, FirebaseDataProvider, RAFirebaseOptions } from "r
 import { firebaseConfig as config, firebaseApp as firebaseAppInstance } from './utils/FIREBASE_CONFIG.js';
 import { CustomLogin } from "./pages/CustomLogin.js";
 import  i18nProvider  from '../src/utils/i18n/pt-br.js';
-import PeopleIcon from '@mui/icons-material/People';
 import clientes from "./pages/clientes/index.js";
 import servicos from "./pages/servicos/index.js";
 

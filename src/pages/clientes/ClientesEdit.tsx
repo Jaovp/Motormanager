@@ -1,10 +1,11 @@
 import { Edit, SimpleForm, TextInput } from "react-admin"
 import { phoneNumberFormat } from "../../components/Formatters"
 import { DocInput, TipoInput } from "../../components/DocInput"
+import { Cliente } from "../../types"
 
-const ClientesEdit = (props: any) => {
+const ClientesEdit: React.FC = (props: any) => {
     return(
-    <Edit {...props}>
+    <Edit<Cliente> {...props}>
         <SimpleForm>
             <TextInput source="nome" />
             <TextInput source="email" />
