@@ -9,3 +9,8 @@ export interface Cliente extends RaRecord {
     tipo: tipoCliente;
     doc: string;
 }
+
+export interface Servico extends RaRecord {
+    nome: string;
+    valor: number; // Adicione essa propriedade da parte 'main'
+}
