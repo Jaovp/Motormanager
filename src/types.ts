@@ -12,5 +12,5 @@ export interface Cliente extends RaRecord {
 
 export interface Servico extends RaRecord {
     nome: string;
-    valor: number; // Adicione essa propriedade da parte 'main'
+    valor: number;
 }
