@@ -14,10 +14,12 @@ export const TipoInput = (props: any) => {
         <RadioButtonGroupInput
             source="tipo"
             optionText="label"
+            
             choices={[
                 { id: 'F', label: 'Fisico' },
                 { id: 'J', label: 'Juridico' },
-            ]}
+            ]
+            }
         />
     );
 };
