@@ -23,6 +23,6 @@ const authProvider = FirebaseAuthProvider(config, options);
 
 export const App = () => 
 <Admin dataProvider={dataProvider} authProvider={authProvider} title="Motormanager" i18nProvider={i18nProvider}>
-  <Resource name="clientes" {...clientes} icon={PeopleIcon}/>
+  <Resource name="clientes" {...clientes}/>
   <Resource name="servicos" {...servicos}/>
 </Admin>;
