@@ -8,6 +8,7 @@ import { CustomLogin } from "./pages/CustomLogin.js";
 import  i18nProvider  from '../src/utils/i18n/pt-br.js';
 import clientes from "./pages/clientes/index.js";
 import servicos from "./pages/servicos/index.js";
+import veiculos from "./pages/veiculos/index.js";
 
 
 const options: RAFirebaseOptions = {
@@ -23,6 +24,7 @@ const authProvider = FirebaseAuthProvider(config, options);
 
 export const App = () => 
 <Admin dataProvider={dataProvider} authProvider={authProvider} title="Motormanager" i18nProvider={i18nProvider}>
-  <Resource name="clientes" {...clientes}/>
+  <Resource name="clientes" recordRepresentation="nome" {...clientes}/>
+  <Resource name="veiculos"  {...veiculos}/>
   <Resource name="servicos" {...servicos}/>
 </Admin>;
