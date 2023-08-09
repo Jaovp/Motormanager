@@ -14,3 +14,11 @@ export interface Servico extends RaRecord {
     nome: string;
     valor: number;
 }
+
+export interface Veiculo extends RaRecord {
+    placa: string;
+    cor: string;
+    modelo: string;
+    ano: number;
+    clienteId: Cliente['id'];
+}

@@ -52,3 +52,14 @@ export const cnpjFormat = (num: string) => {
     }
     return x;
 }
+
+export const placaFormat = (placa: string) => {
+    if (!placa) return "";
+
+    let newPlaca = placa.replace(/\W/g, '');
+    newPlaca = newPlaca.toUpperCase();
+
+    return newPlaca;
+};
+
+
