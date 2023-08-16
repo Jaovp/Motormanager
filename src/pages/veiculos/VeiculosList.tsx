@@ -13,8 +13,8 @@ const VeiculosList: React.FC = () => {
     <List>
       {isSmall ? (
         <SimpleList
-          primaryText={(record) => record.nome}
-          secondaryText={(record) => record.valor}
+          primaryText={(record) => record.placa}
+          secondaryText={(record) => record.modelo}
           rowStyle={postRowStyle}
         >
             <TextField<Veiculo> source="placa" label="Placa"/>
