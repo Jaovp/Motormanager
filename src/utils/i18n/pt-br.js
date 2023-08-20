@@ -1,13 +1,21 @@
 import ptBrMessages from 'ra-language-pt-br';
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 
+
 const customMessages = {
     resources: {
         veiculos: {
-            name: 'Veículos', // Nome com um acento no "i"
+            name: 'Veículos',
+        },
+        servicos: {
+            name: 'Serviços', // Nome com um acento no "i"
+        },
+        ordensServico: {
+            name: 'Ordens de serviço', 
         },
         // Outros recursos (resources) aqui
     },
+                
 };
 
 const messages = {
