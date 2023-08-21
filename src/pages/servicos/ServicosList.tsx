@@ -1,4 +1,4 @@
-import { Datagrid, EmailField, List, ListProps, NumberField, SimpleList, TextField } from "react-admin";
+import { Datagrid, EditButton, EmailField, List, ListProps, NumberField, SimpleList, TextField } from "react-admin";
 import { useMediaQuery, Theme } from '@mui/material';
 import { Servico } from "../../types";
 
@@ -25,6 +25,7 @@ const ServicosList: React.FC<ListProps> = () => {
         <Datagrid rowClick="edit">
           <TextField<Servico>  source="nome" label="Nome"/>
           <NumberField<Servico>  source="valor" label="Valor" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
+          <EditButton/>
         </Datagrid>
       )}
     </List>

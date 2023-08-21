@@ -1,4 +1,4 @@
-import { Datagrid, List, TextField, SimpleList } from "react-admin"
+import { Datagrid, List, TextField, SimpleList, EditButton } from "react-admin"
 import { useMediaQuery, Theme } from '@mui/material';
 import { Veiculo } from "../../types";
 
@@ -28,6 +28,7 @@ const VeiculosList: React.FC = () => {
             <TextField<Veiculo> source="cor" label="Cor" />
             <TextField<Veiculo> source="modelo" label="Modelo" />
             <TextField<Veiculo> source="ano" label="Ano" typeof="number" />
+            <EditButton/>
         </Datagrid>
       )}
     </List>

@@ -4,7 +4,7 @@ import { Servico } from '../../types';
 
 const ServicosEdit: React.FC = (props) => {
     return (
-        <Edit<Servico> {...props}>
+        <Edit<Servico> {...props} title="Edição de Serviço">
             <SimpleForm>
                 <TextInput source="nome" />
                 <NumberInput source="valor" />

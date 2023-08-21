@@ -3,7 +3,7 @@ import { Servico } from "../../types";
 
 const ServicosCreate: React.FC< ListProps > = () => {
     return(
-        <Create<Servico> >
+        <Create<Servico> title="Cadastro de Serviço">
             <SimpleForm>
                 <TextInput source="nome" />
                 <NumberInput source="valor" />

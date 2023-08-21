@@ -12,7 +12,7 @@ const ClientesCreate: React.FC < ListProps > = () => {
     
 
     return (
-        <Create<Cliente> >
+        <Create<Cliente> title="Cadastro de Cliente" >
             <SimpleForm>
                 <TextInput source="nome" />
                 <TextInput source="email" />

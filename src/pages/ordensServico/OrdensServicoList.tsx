@@ -1,4 +1,4 @@
-import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField } from 'react-admin';
+import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { OrdemServico, Veiculo } from '../../types';
 
@@ -41,7 +41,7 @@ const OrdensServicosList = () => {
           <DateField<OrdemServico> label="Data de Entrega" source="dataEntrega" />
           <ReferenceArrayField<OrdemServico> label="Serviços" reference="servicos" source="servicos_id" />
           <NumberField<OrdemServico> label="Orçamento" source="orcamento" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
-          
+          <EditButton/>
         </Datagrid>
       )}
     </List>

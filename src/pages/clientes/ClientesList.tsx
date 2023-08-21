@@ -1,4 +1,4 @@
-import { Datagrid, EmailField, List, TextField, SimpleList, FunctionField } from 'react-admin';
+import { Datagrid, EmailField, List, TextField, SimpleList, FunctionField, EditButton } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { Cliente } from '../../types';
 
@@ -36,6 +36,7 @@ const ClientesList = () => {
           <TextField<Cliente> source="telefone" label="Telefone" />
           <FunctionField<Cliente> source='tipo' label="Tipo" render={renderTipo} />
           <TextField<Cliente> source="doc" label="CPF/CNPJ" />
+          <EditButton/>
         </Datagrid>
       )}
     </List>

@@ -5,7 +5,7 @@ import ServicesInput from '../../components/ServicesInput';
 
 const OrdensServicoEdit: React.FC = (props) => {
     return (
-        <Edit<OrdemServico> {...props}>
+        <Edit<OrdemServico> {...props} title="Edição de Ordem de Serviço">
             <SimpleForm>
                 <RadioButtonGroupInput source="status" choices={[
                 { id: 'Concluído',  name: 'Concluído' },
