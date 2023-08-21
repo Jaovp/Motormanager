@@ -18,13 +18,13 @@ const ServicosList: React.FC<ListProps> = () => {
           rowStyle={postRowStyle}
         >
           <TextField<Servico> source="nome" label="Nome"/>
-          <NumberField<Servico> source="valor" label="Valor" />
+          <NumberField<Servico> source="valor" label="Valor" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
           
         </SimpleList>
       ) : (
         <Datagrid rowClick="edit">
           <TextField<Servico>  source="nome" label="Nome"/>
-          <NumberField<Servico>  source="valor" label="Valor" />
+          <NumberField<Servico>  source="valor" label="Valor" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
         </Datagrid>
       )}
     </List>
