@@ -1,10 +1,23 @@
-import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton } from 'react-admin';
+import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton, TextInput, ReferenceInput } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { OrdemServico, Veiculo } from '../../types';
+import { Box } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { InputAdornment } from '@mui/material';
 
 const postRowStyle = () => ({
   borderBottom: '1px solid #ccc',
 });
+
+const filterOrdensServicos = [
+  <ReferenceInput
+    reference="veiculos"
+    source="veiculo_id"
+    label="Placa"
+    alwaysOn
+    resetabble
+  />
+];
 
 
 
@@ -12,7 +25,7 @@ const OrdensServicosList = () => {
   const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List>
+    <List filters={filterOrdensServicos} >
       {isSmall ? (
         <SimpleList
           primaryText={
@@ -32,7 +45,7 @@ const OrdensServicosList = () => {
           <ReferenceArrayField<OrdemServico> label="Serviços" reference="servicos" source="servicos_id" />
         </SimpleList>
       ) : (
-        <Datagrid rowClick="edit">
+        <Datagrid>
           <TextField<OrdemServico> label="Status"  source="status"  />
           <ReferenceField<OrdemServico> label="Veículo" source="veiculo_id" reference="veiculos" >
             <TextField source="placa" />
@@ -41,7 +54,9 @@ const OrdensServicosList = () => {
           <DateField<OrdemServico> label="Data de Entrega" source="dataEntrega" />
           <ReferenceArrayField<OrdemServico> label="Serviços" reference="servicos" source="servicos_id" />
           <NumberField<OrdemServico> label="Orçamento" source="orcamento" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
-          <EditButton/>
+          <Box sx={{display: "flex", justifyContent: "end"}}>
+              <EditButton/>
+          </Box>
         </Datagrid>
       )}
     </List>

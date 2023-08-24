@@ -5,8 +5,9 @@ import Box from '@mui/material/Box';
 import LockIcon from '@mui/icons-material/Lock';
 import LoginIcon from '@mui/icons-material/Login';
 import 'firebase/auth';
-
+import { useNavigate } from 'react-router-dom';
 import { firebaseConfig as config, firebaseApp as firebaseAppInstance } from '../utils/FIREBASE_CONFIG.js';
+import logo from '../assets/logosvg.svg'
 
 interface FormValues {
     email?: string;
@@ -22,20 +23,27 @@ export const CustomLogin = () => {
     const login = useLogin();
     
 
+    const navigate = useNavigate();
 
     const notify = useNotify();
 
     
     const handleLogin = async () => {
-        
+      setLoading(true); // Iniciar o loading
+      console.log(email, password);
+      try {
+        console.log('entrou no try');
         const userCredential = await firebaseAppInstance.auth().signInWithEmailAndPassword(email, password);
         const token = await userCredential.user?.getIdToken();
-        await login({ token }).catch((error) => {
-            console.log(error);
-            notify('Invalid email or password');
-        }
-        );
+        login({ token });
+        navigate('/home'); // Redirecionar para a página Home
+      } catch (error) {
+        notify('Senha ou email incorretos');
+      } finally {
+        setLoading(false); // Parar o loading
+      }
     };
+    
     
     
         
@@ -56,7 +64,19 @@ export const CustomLogin = () => {
           backgroundSize: 'cover',
         }}
       >
-        <Card sx={{ minWidth: 300, marginTop: '6em' }}>
+      <Box
+        component="img"
+        sx={{
+          height: 500,
+          width: 500,
+          maxHeight: { xs: 100, md: 200 },
+          maxWidth: { xs: 100, md: 200 },
+          
+        }}
+        alt="Logo Motormanager"
+        src={logo}
+      />
+        <Card sx={{ minWidth: 300, marginTop: '1em'}}>
           <Box
             sx={{
               margin: '1em',
@@ -64,7 +84,7 @@ export const CustomLogin = () => {
               justifyContent: 'center',
             }}
           >
-            <Avatar sx={{ bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ bgcolor: 'primary.main' }}>
               <LockIcon />
             </Avatar>
           </Box>
@@ -81,7 +101,7 @@ export const CustomLogin = () => {
               <TextInput
                 autoFocus
                 source="email"
-                type="email"
+                type="text"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 validate={required()}
@@ -109,7 +129,7 @@ export const CustomLogin = () => {
                     {loading && (
                                 <CircularProgress size={25} thickness={2} />
                             )}
-                    <LoginIcon sx={{ marginRight: '0.5em' }} />
+                    <LoginIcon sx={{ marginRight: '0.5em', color: 'white' }} />
                 </Button>
             </CardActions>
         </Card>
