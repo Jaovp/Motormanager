@@ -1,14 +1,13 @@
 import { Create, NumberInput, ReferenceInput, SimpleForm, TextInput, maxLength, maxValue, minLength, minValue, required } from "react-admin";
 import { Veiculo } from "../../types";
-import { placaFormat } from "../../components/Formatters";
 
 const currentYear = new Date().getFullYear();
 
 const VeiculosCreate: React.FC = () => {
     return (
-        <Create<Veiculo> >
+        <Create<Veiculo> title="Cadastro de Veículo">
             <SimpleForm>
-            <TextInput source="placa" format={placaFormat} validate={[
+            <TextInput source="placa" format={(value) => value && value.toUpperCase()} validate={[
                     required(),
                     minLength(7, 'A placa deve ter 7 caracteres'),
                     maxLength(7, 'A placa deve ter 7 caracteres')

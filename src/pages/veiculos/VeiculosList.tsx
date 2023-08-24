@@ -1,6 +1,20 @@
-import { Datagrid, List, TextField, SimpleList } from "react-admin"
+import { Datagrid, List, TextField, SimpleList, EditButton, SearchInput, TextInput } from "react-admin"
 import { useMediaQuery, Theme } from '@mui/material';
 import { Veiculo } from "../../types";
+import { Box } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { InputAdornment } from '@mui/material';
+
+
+const filterVeiculos = [
+  <TextInput source="placa" label="Placa" format={(value) => value && value.toUpperCase()}  alwaysOn InputProps={{
+    endAdornment: (
+        <InputAdornment position="end">
+            <SearchIcon color="disabled" />
+        </InputAdornment>
+    ),
+  }}/>,
+]
 
 const postRowStyle = () => ({
     borderBottom: '1px solid #ccc',
@@ -10,7 +24,7 @@ const VeiculosList: React.FC = () => {
     const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List>
+    <List filters={filterVeiculos}>
       {isSmall ? (
         <SimpleList
           primaryText={(record) => record.placa}
@@ -23,11 +37,14 @@ const VeiculosList: React.FC = () => {
             <TextField<Veiculo> source="ano" label="Ano" />
         </SimpleList>
       ) : (
-        <Datagrid rowClick="edit">
+        <Datagrid>
             <TextField<Veiculo> source="placa" label="Placa"/>
             <TextField<Veiculo> source="cor" label="Cor" />
             <TextField<Veiculo> source="modelo" label="Modelo" />
             <TextField<Veiculo> source="ano" label="Ano" typeof="number" />
+            <Box sx={{display: "flex", justifyContent: "end"}}>
+              <EditButton/>
+            </Box>
         </Datagrid>
       )}
     </List>

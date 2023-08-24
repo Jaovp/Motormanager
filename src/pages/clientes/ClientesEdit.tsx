@@ -5,7 +5,7 @@ import { Cliente } from "../../types"
 
 const ClientesEdit: React.FC = (props: any) => {
     return(
-    <Edit<Cliente> {...props}>
+    <Edit<Cliente> {...props} title="Edição de Cliente">
         <SimpleForm>
             <TextInput source="nome" />
             <TextInput source="email" />
