@@ -33,7 +33,6 @@ export const CustomErrorPage: React.FC<CustomErrorProps> = ({
     return (
         <div>
             <Title title="Error" />
-            <h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
             <h1><ErrorIcon /> Something Went Wrong </h1>
             <div>A client error occurred and your request couldn't be completed.</div>
             {process.env.NODE_ENV !== 'production' && (
