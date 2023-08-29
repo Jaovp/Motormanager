@@ -1,5 +1,5 @@
 import logoLight from '../assets/logosvg.svg'; // Importe a logo para o tema claro
-import logoDark from '../assets/logobranca 1.svg'; // Importe a logo para o tema escuro
+import logoDark from '../assets/logoTemaDark.svg'; // Importe a logo para o tema escuro
 import { Box, useTheme } from '@mui/material';
 
 const MainPage = () => {
