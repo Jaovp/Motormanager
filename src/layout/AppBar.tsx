@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { AppBar, Link, TitlePortal } from 'react-admin';
+import { AppBar, Link, TitlePortal, ToggleThemeButton } from 'react-admin';
 import Box from '@mui/material/Box';
 import Logo from './Logo';
 
 export const CustomAppBar = () => (
-    <AppBar color='secondary'>
+    <AppBar color='secondary' toolbar={
+        <>
+        <ToggleThemeButton/>
+        </>
+    }>
         <Link to="/home">
             <Logo />
         </Link>
