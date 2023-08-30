@@ -1,9 +1,15 @@
-import { Datagrid, EditButton, EmailField, List, ListProps, NumberField, SearchInput, SimpleList, TextField, TextInput } from "react-admin";
+import { CreateButton, Datagrid, EditButton, EmailField, List, ListProps, NumberField, SearchInput, SimpleList, TextField, TextInput, TopToolbar } from "react-admin";
 import { useMediaQuery, Theme } from '@mui/material';
 import { Servico } from "../../types";
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
+
+const ListActions = () => (
+  <TopToolbar>
+      <CreateButton/>
+  </TopToolbar>
+);
 
 const filterServicos = [
   <TextInput source="nome" label="Nome" format={(value) => value && value.charAt(0).toUpperCase() + value.slice(1)} resettable alwaysOn InputProps={{
@@ -23,7 +29,7 @@ const ServicosList: React.FC<ListProps> = () => {
     const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List filters={filterServicos}>
+    <List filters={filterServicos} actions={<ListActions/>}>
       {isSmall ? (
         <SimpleList
           primaryText={(record) => record.nome}

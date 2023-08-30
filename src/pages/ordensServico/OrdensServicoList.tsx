@@ -1,9 +1,15 @@
-import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton, TextInput, ReferenceInput } from 'react-admin';
+import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton, TextInput, ReferenceInput, TopToolbar, CreateButton, useRecordContext } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { OrdemServico, Veiculo } from '../../types';
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
+
+const ListActions = () => (
+  <TopToolbar>
+      <CreateButton/>
+  </TopToolbar>
+);
 
 const postRowStyle = () => ({
   borderBottom: '1px solid #ccc',
@@ -21,11 +27,11 @@ const filterOrdensServicos = [
 
 
 
-const OrdensServicosList = () => {
+const OrdensServicosList = (props: any) => {
   const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List filters={filterOrdensServicos} >
+    <List filters={filterOrdensServicos} actions={<ListActions/>}>
       {isSmall ? (
         <SimpleList
           primaryText={
@@ -46,7 +52,7 @@ const OrdensServicosList = () => {
         </SimpleList>
       ) : (
         <Datagrid>
-          <TextField<OrdemServico> label="Status"  source="status"  />
+          <TextField<OrdemServico> label="Status"  source="status"/>
           <ReferenceField<OrdemServico> label="Veículo" source="veiculo_id" reference="veiculos" >
             <TextField source="placa" />
           </ReferenceField>

@@ -6,7 +6,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
 
 
-
 const clientesFilter = [
     <TextInput label="Nome" source="nome" alwaysOn resettable format={(value) => value && value.charAt(0).toUpperCase() + value.slice(1)} InputProps={{
       endAdornment: (

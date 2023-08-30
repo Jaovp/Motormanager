@@ -1,9 +1,15 @@
-import { Datagrid, List, TextField, SimpleList, EditButton, SearchInput, TextInput } from "react-admin"
+import { Datagrid, List, TextField, SimpleList, EditButton, SearchInput, TextInput, TopToolbar, CreateButton } from "react-admin"
 import { useMediaQuery, Theme } from '@mui/material';
 import { Veiculo } from "../../types";
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
+
+const ListActions = () => (
+  <TopToolbar>
+      <CreateButton/>
+  </TopToolbar>
+);
 
 
 const filterVeiculos = [
@@ -24,7 +30,7 @@ const VeiculosList: React.FC = () => {
     const isSmall = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   return (
-    <List filters={filterVeiculos}>
+    <List filters={filterVeiculos} actions={<ListActions/>}>
       {isSmall ? (
         <SimpleList
           primaryText={(record) => record.placa}
