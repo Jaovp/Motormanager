@@ -26,16 +26,13 @@ export interface Veiculo extends RaRecord {
     cliente_id: Cliente['cliente_id'];
 }
 
-export type statusOrdemServico = 'concluido' | 'em andamento';
 
 export interface OrdemServico extends RaRecord {
     ordemServico_id: Identifier;
     dataSolicitacao: Date;
     dataEntrega: Date;
-    status: statusOrdemServico;
+    status: string;
     veiculo_id: Veiculo['veiculo_id'];
-    cliente_id: Cliente['cliente_id'];
     servicos_id: Servico['servico_id'][];
-    valorTotal: number;
-    descricao: string;
+    orcamento: number;
 }
