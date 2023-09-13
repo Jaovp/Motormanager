@@ -60,7 +60,7 @@ const ClientesList = () => {
           <Box sx={{display: "flex", justifyContent: "end"}}>
             <EditButton/>
           </Box>
-          <DeleteButton mutationMode="pessimistic"/>
+          <DeleteButton mutationMode="pessimistic" confirmTitle="Cuidado"/>
         </Datagrid>
       )}
     </List>

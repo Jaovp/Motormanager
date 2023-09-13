@@ -53,7 +53,7 @@ const ServicosList: React.FC<ListProps> = () => {
           <NumberField<Servico>  source="valor" label="Valor" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
           <Box sx={{display: "flex", justifyContent: "end"}}>
             <EditButton/>
-            <DeleteButton mutationMode="pessimistic" confirmTitle="Cuidado"></DeleteButton>
+            <DeleteButton mutationMode="pessimistic" confirmTitle="Cuidado"/>
           </Box>
         </Datagrid>
       )}
