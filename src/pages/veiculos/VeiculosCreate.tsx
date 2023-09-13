@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 
 const VeiculosCreate: React.FC = () => {
     return (
-        <Create<Veiculo> title="Cadastro de Veículo">
+        <Create<Veiculo> title="Cadastro de Veículo" redirect = "list">
             <SimpleForm>
             <TextInput source="placa" format={(value) => value && value.toUpperCase()} validate={[
                     required(),
