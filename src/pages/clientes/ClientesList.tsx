@@ -1,4 +1,4 @@
-import { Datagrid, EmailField, List, TextField, SimpleList, FunctionField, EditButton, TextInput, TopToolbar, CreateButton } from 'react-admin';
+import { Datagrid, EmailField, List, TextField, SimpleList, FunctionField, EditButton, TextInput, TopToolbar, CreateButton, DeleteButton } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { Cliente } from '../../types';
 import { Box } from '@mui/material';
@@ -60,6 +60,7 @@ const ClientesList = () => {
           <Box sx={{display: "flex", justifyContent: "end"}}>
             <EditButton/>
           </Box>
+          <DeleteButton mutationMode="pessimistic"/>
         </Datagrid>
       )}
     </List>

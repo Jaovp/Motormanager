@@ -1,12 +1,12 @@
-import { Create, ListProps, NumberInput, SimpleForm, TextInput } from "react-admin"
+import { Create, ListProps, NumberInput, SimpleForm, TextInput, required } from "react-admin"
 import { Servico } from "../../types";
 
 const ServicosCreate: React.FC< ListProps > = () => {
     return(
-        <Create<Servico> title="Cadastro de Serviço">
+        <Create<Servico> title="Cadastro de Serviço" redirect = "list">
             <SimpleForm>
-                <TextInput source="nome" />
-                <NumberInput source="valor" />
+                <TextInput source="nome" validate={required()}/>
+                <NumberInput source="valor" validate={required()}/>
             </SimpleForm>
         </Create>
     )

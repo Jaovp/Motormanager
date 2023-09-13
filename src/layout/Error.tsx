@@ -33,9 +33,9 @@ export const CustomErrorPage: React.FC<CustomErrorProps> = ({
     return (
         <div>
             <Title title="Error" />
-            <h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
-            <h1><ErrorIcon /> Something Went Wrong </h1>
-            <div>A client error occurred and your request couldn't be completed.</div>
+            <h1>Ops, Ocorreu um erro!</h1>
+            <h1><ErrorIcon /> Algo de errado ocorreu </h1>
+            <div>Erro de cliente, sua requisição não pode ser encontrada!</div>
             {process.env.NODE_ENV !== 'production' && (
                 <details>
                     {/* errorInfo is not defined in the original code */}

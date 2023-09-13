@@ -1,9 +1,11 @@
-import { CreateButton, Datagrid, EditButton, EmailField, List, ListProps, NumberField, SearchInput, SimpleList, TextField, TextInput, TopToolbar } from "react-admin";
+import { Confirm, CreateButton, Datagrid, DeleteButton, EditButton, EmailField, List, ListProps, NumberField, SearchInput, SimpleList, TextField, TextInput, TopToolbar } from "react-admin";
 import { useMediaQuery, Theme } from '@mui/material';
 import { Servico } from "../../types";
 import { Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
+import { Notification } from 'react-admin';
+
 
 const ListActions = () => (
   <TopToolbar>
@@ -20,6 +22,11 @@ const filterServicos = [
     ),
   }}/>,
 ]
+
+const customConfirmDelete = (record: Servico) => {
+  return `Tem certeza de que deseja excluir o serviço "${record.nome}"?`;
+};
+
 
 const postRowStyle = () => ({
     borderBottom: '1px solid #ccc',
@@ -46,6 +53,7 @@ const ServicosList: React.FC<ListProps> = () => {
           <NumberField<Servico>  source="valor" label="Valor" locales="pt-br" options={{ style: 'currency', currency: 'BRL' }}/>
           <Box sx={{display: "flex", justifyContent: "end"}}>
             <EditButton/>
+            <DeleteButton mutationMode="pessimistic" confirmTitle="Cuidado"></DeleteButton>
           </Box>
         </Datagrid>
       )}

@@ -14,7 +14,7 @@ const OrdensServicosCreate: React.FC = () => {
 
 
   return (
-    <Create<OrdemServico> title="Cadastro de Ordem de Serviço">
+    <Create<OrdemServico> title="Cadastro de Ordem de Serviço" redirect = "list">
       <SimpleForm>
         <RadioButtonGroupInput source="status" choices={[
             { id: 'Concluído',  name: 'Concluído' },

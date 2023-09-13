@@ -1,4 +1,4 @@
-import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton, TextInput, ReferenceInput, TopToolbar, CreateButton, useRecordContext } from 'react-admin';
+import { Datagrid, List, TextField, SimpleList, ReferenceField, DateField, ReferenceArrayField, NumberField, EditButton, TextInput, ReferenceInput, TopToolbar, CreateButton, useRecordContext, DeleteButton } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 import { OrdemServico, Veiculo } from '../../types';
 import { Box } from '@mui/material';
@@ -63,6 +63,7 @@ const OrdensServicosList = (props: any) => {
           <Box sx={{display: "flex", justifyContent: "end"}}>
               <EditButton/>
           </Box>
+          <DeleteButton mutationMode="pessimistic"/>
         </Datagrid>
       )}
     </List>

@@ -1,4 +1,4 @@
-import { Datagrid, List, TextField, SimpleList, EditButton, SearchInput, TextInput, TopToolbar, CreateButton } from "react-admin"
+import { Datagrid, List, TextField, SimpleList, EditButton, SearchInput, TextInput, TopToolbar, CreateButton, DeleteButton } from "react-admin"
 import { useMediaQuery, Theme } from '@mui/material';
 import { Veiculo } from "../../types";
 import { Box } from '@mui/material';
@@ -51,6 +51,7 @@ const VeiculosList: React.FC = () => {
             <Box sx={{display: "flex", justifyContent: "end"}}>
               <EditButton/>
             </Box>
+            <DeleteButton mutationMode="pessimistic"/>
         </Datagrid>
       )}
     </List>

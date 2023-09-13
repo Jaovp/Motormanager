@@ -1,4 +1,4 @@
-import { RadioButtonGroupInput, TextInput } from "react-admin";
+import { RadioButtonGroupInput, TextInput, required } from "react-admin";
 import { cnpjFormat, cpfFormat } from "./Formatters";
 import { useWatch } from 'react-hook-form';
 
@@ -20,6 +20,7 @@ export const TipoInput = (props: any) => {
                 { id: 'J', label: 'Juridico' },
             ]
             }
+            validate={required()}
         />
     );
 };
@@ -29,6 +30,7 @@ export const DocInput = (props: any) => {
         control: props.control,
         name: 'tipo',
         defaultValue: 'F',
+
     });
 
     return (
@@ -38,6 +40,7 @@ export const DocInput = (props: any) => {
             source="doc"
             format={tipo === 'F' ? cpfFormat : cnpjFormat}
             disabled={tipo !== 'F' && tipo !== 'J'}
+            validate={required()}
         />
     );
 };

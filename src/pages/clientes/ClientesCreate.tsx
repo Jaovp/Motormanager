@@ -3,6 +3,7 @@ import {
     TextInput,
     SimpleForm,
     ListProps,
+    required,
 } from 'react-admin';
 import { phoneNumberFormat } from '../../components/Formatters';
 import { DocInput, TipoInput } from '../../components/DocInput';
@@ -12,11 +13,11 @@ const ClientesCreate: React.FC < ListProps > = () => {
     
 
     return (
-        <Create<Cliente> title="Cadastro de Cliente" >
+        <Create<Cliente> title="Cadastro de Cliente" redirect = "list" >
             <SimpleForm>
-                <TextInput source="nome" format={(value) => value && value.charAt(0).toUpperCase() + value.slice(1)}/>
-                <TextInput source="email" />
-                <TextInput source="telefone" format={phoneNumberFormat} />
+                <TextInput source="nome" format={(value) => value && value.charAt(0).toUpperCase() + value.slice(1)} validate={required()}/>
+                <TextInput source="email" validate={required()} />
+                <TextInput source="telefone" format={phoneNumberFormat} validate={required()} />
                 <TipoInput />
                 <DocInput />
             </SimpleForm>
